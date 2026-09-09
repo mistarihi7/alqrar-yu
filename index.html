@@ -20,9 +20,9 @@
     --paper-alt:#ECEAE4;
     --line:#DAD8D0;
     --white:#FFFFFF;
-    --radius-s:6px;
-    --radius-m:12px;
-    --maxw:1180px;
+    --radius-s:8px;
+    --radius-m:14px;
+    --maxw:1100px;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color: transparent;}
   html{scroll-behavior:smooth;}
@@ -34,6 +34,7 @@
     font-weight:400;
     line-height:1.75;
     -webkit-font-smoothing:antialiased;
+    overflow-x: hidden;
   }
   h1,h2,h3,h4{
     font-family:'Cairo', sans-serif;
@@ -46,8 +47,14 @@
   a{color:inherit;text-decoration:none;}
   ul{margin:0;padding:0;list-style:none;}
   button, input, select{font-family:inherit;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
-  section{padding:70px 0;}
+  
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 20px;
+    width: 100%;
+  }
+  section{padding:60px 0;}
   
   /* ===== header & mobile menu ===== */
   header{
@@ -61,12 +68,12 @@
     display:flex;align-items:center;justify-content:space-between;gap:15px;
   }
   .brand{display:flex;align-items:center;gap:10px;}
-  .brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;}
+  .brand img{width:42px;height:42px;border-radius:50%;object-fit:cover; border:1px solid var(--line);}
   .brand-text{display:flex;flex-direction:column;line-height:1.2;}
   .brand-text strong{font-family:'Cairo',sans-serif;font-weight:800;font-size:15px;color:var(--navy);}
   .brand-text small{font-size:11px;color:var(--gray);font-weight:500;}
   
-  nav.links{display:flex;align-items:center;gap:25px;}
+  nav.links{display:none;align-items:center;gap:25px;}
   nav.links a{
     font-size:14px;font-weight:600;color:var(--ink);position:relative;padding:4px 0;
   }
@@ -83,7 +90,7 @@
   .cta-btn:hover{background:var(--green-deep);}
   
   .menu-toggle{
-    display:none;font-size:24px;color:var(--navy);padding:5px;cursor:pointer;background:none;border:none;
+    display:flex;font-size:24px;color:var(--navy);padding:5px;cursor:pointer;background:none;border:none;align-items:center;justify-content:center;
   }
 
   .mobile-nav {
@@ -97,13 +104,13 @@
     display: flex;
     flex-direction: column;
     padding: 30px;
-    gap: 20px;
+    gap: 15px;
     transition: right 0.3s ease;
     z-index: 99;
   }
   .mobile-nav.active { right: 0; }
   .mobile-nav a {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     color: var(--navy);
     padding: 10px 0;
@@ -112,151 +119,155 @@
 
   /* ===== hero ===== */
   .hero{
-    position:relative;overflow:hidden;padding:60px 0 50px;
+    padding:40px 0 30px;
+    text-align: center;
   }
   .hero-grid{
-    position:relative;display:grid;grid-template-columns:1fr;gap:40px;align-items:center;text-align:center;
+    display:flex;flex-direction:column;gap:30px;align-items:center;
   }
   .hero-eyebrow{
     display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
-    padding:6px 12px;border-radius:30px;font-size:12px;font-weight:600;color:var(--green-deep);
-    margin-bottom:20px;
+    padding:6px 14px;border-radius:30px;font-size:12px;font-weight:600;color:var(--green-deep);
+    margin-bottom:15px;
   }
   .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--red);}
   .hero h1{
-    font-size:clamp(32px, 7vw, 50px);font-weight:900;letter-spacing:-.5px;
+    font-size:clamp(28px, 6vw, 46px);font-weight:900;letter-spacing:-.5px;
   }
   .hero h1 span{color:var(--green);}
   .hero .lede{
-    margin-top:16px;font-size:16px;color:#334049;max-width:100%;
+    margin-top:14px;font-size:15px;color:#334049;max-width:650px;margin-left:auto;margin-right:auto;
   }
-  .hero-actions{display:flex;gap:12px;margin-top:28px;justify-content:center;flex-wrap:wrap;}
+  .hero-actions{display:flex;gap:10px;margin-top:22px;justify-content:center;flex-wrap:wrap;}
+  
   .hero-visual{
-    display:flex;align-items:center;justify-content:center;
+    display:flex;align-items:center;justify-content:center;width:100%;
   }
   .hero-visual .ring{
-    width:240px;aspect-ratio:1;border-radius:50%;
+    width:220px;height:220px;border-radius:50%;
     background:#fff;border:1px solid var(--line);
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 20px 40px -20px rgba(5,39,74,0.3);
+    box-shadow:0 15px 30px -15px rgba(5,39,74,0.25);
     padding: 15px;
   }
   .hero-visual img{width:100%; height:100%; object-fit:contain; border-radius: 50%;}
   
   .hero-pillars{
-    margin-top:40px;display:grid;grid-template-columns:1fr;gap:16px;
-    border-top:1px solid var(--line);padding-top:24px;text-align:right;
+    margin-top:30px;display:grid;grid-template-columns:1fr;gap:14px;
+    border-top:1px solid var(--line);padding-top:20px;text-align:right;
   }
+  .hero-pillars div{background:#fff; padding:16px; border-radius:var(--radius-s); border:1px solid var(--line);}
   .hero-pillars strong{display:block;font-family:'Cairo',sans-serif;font-weight:800;font-size:15px;color:var(--navy);margin-bottom:4px;}
-  .hero-pillars p{font-size:13.5px;color:var(--gray);line-height:1.6;}
+  .hero-pillars p{font-size:13px;color:var(--gray);line-height:1.6;}
 
   /* ===== sections general ===== */
-  .section-head{margin-bottom:35px;}
+  .section-head{margin-bottom:30px;text-align:center;}
   .section-head .kicker-line{
-    display:flex;align-items:center;gap:8px;margin-bottom:10px;
+    display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;
   }
-  .section-head .kicker-line .dash{width:28px;height:3px;background:var(--red);border-radius:2px;}
-  .section-head .kicker-line span{font-size:13px;color:var(--gray);font-weight:500;}
-  .section-head h2{font-size:clamp(24px, 5vw, 36px);font-weight:800;}
-  .section-head p{margin-top:10px;color:#3A4652;font-size:15px;}
+  .section-head .kicker-line .dash{width:24px;height:2px;background:var(--red);border-radius:2px;}
+  .section-head .kicker-line span{font-size:12.5px;color:var(--gray);font-weight:600;}
+  .section-head h2{font-size:clamp(22px, 4.5vw, 32px);font-weight:800;}
+  .section-head p{margin-top:8px;color:#3A4652;font-size:14px;max-width:600px;margin-left:auto;margin-right:auto;}
 
-  /* ===== map section ===== */
+  /* ===== map/logo section ===== */
   .map-container{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
-    padding:20px;text-align:center;box-shadow:0 10px 30px rgba(5,39,74,0.05);
+    padding:16px;text-align:center;box-shadow:0 10px 25px rgba(5,39,74,0.04);
+    max-width:700px;margin:0 auto;
   }
   .map-frame{
-    max-width:550px;margin:0 auto;border-radius:var(--radius-s);overflow:hidden;
+    width:100%;border-radius:var(--radius-s);overflow:hidden;
     border:1px solid var(--line);background:var(--paper);
   }
-  .map-frame img{
-    width:100%;height:auto;display:block;transition:transform 0.3s ease;
-  }
-  .map-frame img:hover{transform:scale(1.02);cursor:zoom-in;}
 
   /* ===== academic tracks (colleges grid) ===== */
   .colleges-grid{
-    display:grid;grid-template-columns:1fr;gap:12px;
+    display:grid;grid-template-columns:1fr;gap:10px;max-width:800px;margin:0 auto;
   }
   .college-badge{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius-s);
-    padding:14px 18px;display:flex;align-items:center;gap:14px;
-    transition:all 0.2s ease;
-  }
-  .college-badge:hover{
-    border-color:var(--green);box-shadow:0 4px 12px rgba(8,129,98,0.08);transform:translateY(-2px);
+    padding:12px 16px;display:flex;align-items:center;gap:12px;
   }
   .college-num{
     background:var(--paper-alt);color:var(--navy);font-family:'Cairo',sans-serif;
-    font-weight:800;font-size:14px;width:30px;height:30px;border-radius:50%;
+    font-weight:800;font-size:13px;width:28px;height:28px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;flex:none;
   }
   .college-badge span:not(.college-num){
-    font-weight:600;font-size:15px;color:var(--navy);
-  }
-
-  /* ===== join form section ===== */
-  .form-card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
-    padding:30px;max-width:700px;margin:0 auto;box-shadow:0 15px 35px rgba(5,39,74,0.06);
-  }
-  .form-group{margin-bottom:20px;text-align:right;}
-  .form-group label{
-    display:block;font-family:'Cairo',sans-serif;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px;
-  }
-  .form-control{
-    width:100%;padding:12px 16px;border:1px solid var(--line);border-radius:var(--radius-s);
-    background:var(--paper);font-size:14px;color:var(--ink);transition:all .2s ease;
-  }
-  .form-control:focus{
-    outline:none;border-color:var(--green);background:#fff;box-shadow:0 0 0 3px rgba(8,129,98,0.1);
-  }
-  .form-submit{width:100%;padding:14px;background:var(--green-deep);color:#fff;font-family:'Cairo',sans-serif;font-weight:800;font-size:16px;border-radius:var(--radius-s);border:none;cursor:pointer;transition:background .2s;}
-  .form-submit:hover{background:var(--green);}
-  
-  .success-msg{
-    display:none;background:#E8F4EF;color:var(--green-deep);border:1px solid var(--green);
-    padding:15px;border-radius:var(--radius-s);margin-top:20px;text-align:center;font-weight:700;
+    font-weight:600;font-size:14px;color:var(--navy);
   }
 
   /* ===== social links section ===== */
   .social-grid{
-    display:grid;grid-template-columns:1fr;gap:16px;max-width:800px;margin:0 auto;
+    display:grid;grid-template-columns:1fr;gap:12px;max-width:700px;margin:0 auto;
   }
   .social-card{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
-    padding:20px;display:flex;align-items:center;gap:16px;text-decoration:none;
-    transition:all 0.2s ease;
+    padding:16px;display:flex;align-items:center;gap:14px;text-decoration:none;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .social-card:hover{border-color:var(--navy);transform:translateY(-2px);box-shadow:0 10px 25px rgba(5,39,74,0.08);}
+  .social-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(5,39,74,0.06);
+  }
   .social-icon{
-    width:45px;height:45px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-    font-size:20px;flex:none;color:#fff;
+    width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    flex:none;
   }
   .social-icon.fb{background:#1877F2;}
-  .social-icon.ig{background:linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);}
+  .social-icon.ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
   .social-icon.wa{background:#25D366;}
-  .social-info strong{display:block;font-family:'Cairo',sans-serif;font-size:16px;color:var(--navy);margin-bottom:2px;}
-  .social-info span{font-size:13px;color:var(--gray);}
+  .social-icon svg{width:24px;height:24px;fill:#ffffff;}
+  .social-info strong{display:block;font-family:'Cairo',sans-serif;font-size:15px;color:var(--navy);margin-bottom:2px;}
+  .social-info span{font-size:12.5px;color:var(--gray);}
+
+  /* ===== join form section (Now at the end) ===== */
+  .form-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
+    padding:24px 20px;max-width:650px;margin:0 auto;box-shadow:0 10px 30px rgba(5,39,74,0.05);
+  }
+  .form-group{margin-bottom:16px;text-align:right;}
+  .form-group label{
+    display:block;font-family:'Cairo',sans-serif;font-weight:700;font-size:13.5px;color:var(--navy);margin-bottom:6px;
+  }
+  .form-control{
+    width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:var(--radius-s);
+    background:var(--paper);font-size:14px;color:var(--ink);
+  }
+  .form-control:focus{
+    outline:none;border-color:var(--green);background:#fff;box-shadow:0 0 0 3px rgba(8,129,98,0.1);
+  }
+  .form-submit{width:100%;padding:13px;background:var(--green-deep);color:#fff;font-family:'Cairo',sans-serif;font-weight:800;font-size:15px;border-radius:var(--radius-s);border:none;cursor:pointer;}
+  .form-submit:hover{background:var(--green);}
+  
+  .success-msg{
+    display:none;background:#E8F4EF;color:var(--green-deep);border:1px solid var(--green);
+    padding:14px;border-radius:var(--radius-s);margin-top:16px;text-align:center;font-weight:700;font-size:14px;
+  }
 
   /* ===== footer ===== */
-  footer{background:var(--navy);color:#B9C4CF;padding:50px 0 20px;}
-  .footer-grid{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,0.12);}
-  .footer-bottom{padding-top:20px;display:flex;justify-content:space-between;font-size:12px;color:#7C90A2;flex-direction:column;gap:8px;text-align:center;}
+  footer{background:var(--navy);color:#B9C4CF;padding:40px 0 20px;text-align: center;}
+  .footer-grid{display:flex;flex-direction:column;gap:20px;padding-bottom:25px;border-bottom:1px solid rgba(255,255,255,0.12);align-items: center;}
+  .footer-bottom{padding-top:15px;display:flex;justify-content:center;font-size:12px;color:#7C90A2;flex-direction:column;gap:6px;}
 
   /* Media Queries for larger screens */
-  @media (min-width: 900px) {
-    .menu-toggle { display: none; }
+  @media (min-width: 768px) {
+    .menu-toggle { display: none !important; }
     .mobile-nav { display: none !important; }
-    nav.links { display: flex; }
-    .hero-grid { grid-template-columns: 1.1fr 0.9fr; text-align: right; }
-    .hero-visual { order: 0; }
-    .hero-visual .ring { width: 320px; }
+    nav.links { display: flex !important; }
+    .hero{text-align: right; padding: 60px 0;}
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; text-align: right; gap: 30px; }
+    .hero .lede { margin-left: 0; }
+    .hero-actions { justify-content: flex-start; }
+    .hero-visual .ring { width: 260px; height: 260px; }
     .hero-pillars { grid-template-columns: repeat(3, 1fr); }
     .colleges-grid { grid-template-columns: repeat(2, 1fr); }
     .social-grid { grid-template-columns: repeat(3, 1fr); }
-    .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
-    .footer-bottom { flex-direction: row; text-align: right; }
+    .section-head { text-align: right; }
+    .section-head p { margin-left: 0; }
+    .footer-grid { flex-direction: row; justify-content: space-between; text-align: right; align-items: flex-start; }
+    .footer-bottom { flex-direction: row; justify-content: space-between; }
   }
 </style>
 </head>
@@ -274,10 +285,10 @@
     
     <nav class="links">
       <a href="#about">عن الكتلة</a>
-      <a href="#map">خريطة الجامعة</a>
+      <a href="#identity">هوية الكتلة</a>
       <a href="#tracks">كليات اليرموك</a>
+      <a href="#social">التواصل</a>
       <a href="#join">انضم إلينا</a>
-      <a href="#social">التواصل الاجتماعي</a>
     </nav>
 
     <div style="display: flex; align-items: center; gap: 10px;">
@@ -287,13 +298,12 @@
   </div>
 </header>
 
-<!-- Mobile Dropdown Menu -->
 <div class="mobile-nav" id="mobileNav">
   <a href="#about" class="mob-link">عن الكتلة</a>
-  <a href="#map" class="mob-link">خريطة الجامعة</a>
+  <a href="#identity" class="mob-link">هوية الكتلة</a>
   <a href="#tracks" class="mob-link">كليات اليرموك</a>
-  <a href="#join" class="mob-link">انضم إلينا</a>
   <a href="#social" class="mob-link">التواصل الاجتماعي</a>
+  <a href="#join" class="mob-link">انضم إلينا</a>
 </div>
 
 <main>
@@ -309,7 +319,7 @@
           <p class="lede">منصة كتلة القرار الطلابية؛ بوابتك الشاملة لكل ما تحتاجه أكاديمياً وخدمياً وجغرافياً داخل حرم جامعة اليرموك.</p>
           <div class="hero-actions">
             <a href="#join" class="cta-btn">قدم طلب الانتساب</a>
-            <a href="#map" class="cta-btn" style="background:var(--paper-alt); color:var(--navy); border:1px solid var(--line);">خريطة الحرم الجامعي</a>
+            <a href="#social" class="cta-btn" style="background:var(--paper-alt); color:var(--navy); border:1px solid var(--line);">تواصل معنا</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -329,46 +339,130 @@
           <p>نوفر الخطط الدراسية، الإرشاد، وكل ما يهم مسيرتك الجامعية.</p>
         </div>
         <div>
-          <strong>دليل الحرم الجامعي</strong>
+          <strong>دليل الحرم</strong>
           <p>خرائط تفصيلية وتوضيحية لأماكن الكليات والبوابات والمرافق الحيوية.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- قسم خريطة الجامعة التصميمية -->
-  <section id="map" style="background:#fff;">
+  <!-- قسم شعار وهُوية الكتلة -->
+  <section id="identity" style="background:#fff;">
     <div class="wrap">
-      <div class="section-head" style="text-align: center;">
-        <div class="kicker-line" style="justify-content: center;">
+      <div class="section-head">
+        <div class="kicker-line">
           <span class="dash"></span>
-          <span>دليل الحرم الجامعي</span>
+          <span>شعارنا ورمزنا</span>
           <span class="dash"></span>
         </div>
-        <h2>خريطة جامعة اليرموك التخطيطية</h2>
-        <p>تصميم هندسي يوضح بوابات الجامعة الرئيسية، الكليات، والمرافق الحيوية لتسهيل تنقلك داخل الحرم.</p>
+        <h2>هُوية كتلة القرار الطلابية</h2>
+        <p>التصميم الرسمي للكتلة الذي يعكس تطلعاتنا الأكاديمية والخدمية داخل جامعة اليرموك.</p>
       </div>
 
       <div class="map-container">
-        <div class="map-frame">
-          <img src="image.png" alt="خريطة جامعة اليرموك - تصميم كتلة القرار">
+        <div class="map-frame" style="padding: 20px; background: #fff; display: flex; justify-content: center; align-items: center;">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" alt="شعار كتلة القرار الرسمي" style="max-height: 320px; width: auto; object-fit: contain;">
         </div>
-        <p style="margin-top: 15px; font-size: 13px; color: var(--gray);">تصميم خاص بكتلة القرار الطلابية - يوضح البوابات وتوزيع الكليات.</p>
+        <p style="margin-top: 12px; font-size: 12.5px; color: var(--gray);">شعار كتلة القرار الطلابية - جامعة اليرموك</p>
       </div>
     </div>
   </section>
 
-  <!-- قسم نموذج الانتساب (Form) -->
+  <!-- قسم كليات جامعة اليرموك الـ 17 -->
+  <section id="tracks">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker-line">
+          <span class="dash"></span>
+          <span>الدليل الأكاديمي الشامل</span>
+        </div>
+        <h2>كليات جامعة اليرموك (17 كلية)</h2>
+        <p>تضم جامعة اليرموك باقة متكاملة من الكليات العلمية والإنسانية:</p>
+      </div>
+
+      <div class="colleges-grid">
+        <div class="college-badge"><div class="college-num">01</div><span>كلية الآداب</span></div>
+        <div class="college-badge"><div class="college-num">02</div><span>كلية العلوم</span></div>
+        <div class="college-badge"><div class="college-num">03</div><span>كلية الأعمال</span></div>
+        <div class="college-badge"><div class="college-num">04</div><span>كلية الحجاوي للهندسة التكنولوجية</span></div>
+        <div class="college-badge"><div class="college-num">05</div><span>كلية الشريعة والدراسات الإسلامية</span></div>
+        <div class="college-badge"><div class="college-num">06</div><span>كلية العلوم التربوية</span></div>
+        <div class="college-badge"><div class="college-num">07</div><span>كلية التربية البدنية وعلوم الرياضة</span></div>
+        <div class="college-badge"><div class="college-num">08</div><span>كلية القانون</span></div>
+        <div class="college-badge"><div class="college-num">09</div><span>كلية الفنون الجميلة</span></div>
+        <div class="college-badge"><div class="college-num">10</div><span>كلية تكنولوجيا المعلومات وعلوم الحاسوب</span></div>
+        <div class="college-badge"><div class="college-num">11</div><span>كلية الآثار والأنثروبولوجيا</span></div>
+        <div class="college-badge"><div class="college-num">12</div><span>كلية السياحة والفنادق</span></div>
+        <div class="college-badge"><div class="college-num">13</div><span>كلية الإعلام</span></div>
+        <div class="college-badge"><div class="college-num">14</div><span>كلية الطب</span></div>
+        <div class="college-badge"><div class="college-num">15</div><span>كلية الصيدلة</span></div>
+        <div class="college-badge"><div class="college-num">16</div><span>كلية التمريض</span></div>
+        <div class="college-badge" style="grid-column: 1 / -1; background: var(--paper-alt);"><div class="college-num" style="background:var(--navy); color:#fff;">17</div><span>الكلية التقنية (دبلوم)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم حسابات التواصل الاجتماعي (شعارات حقيقية SVG) -->
+  <section id="social" style="background:#fff;">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker-line">
+          <span class="dash"></span>
+          <span>ابق على تواصل</span>
+          <span class="dash"></span>
+        </div>
+        <h2>حسابات كتلة القرار على منصات التواصل</h2>
+        <p>تابعنا ليصلك كل جديد من أخبار، إعلانات، وبيانات طلابية رسمية.</p>
+      </div>
+
+      <div class="social-grid">
+        <!-- فيسبوك الحقيقي -->
+        <a href="https://web.facebook.com/profile.php?id=61591127655653" target="_blank" class="social-card">
+          <div class="social-icon fb">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </div>
+          <div class="social-info">
+            <strong>صفحة الفيسبوك</strong>
+            <span>تابع آخر المنشورات والبيانات</span>
+          </div>
+        </a>
+
+        <!-- إنستغرام الحقيقي -->
+        <a href="https://www.instagram.com/alqrar_yu?stkn=ajd0YW96bXBmODB0" target="_blank" class="social-card">
+          <div class="social-icon ig">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          <div class="social-info">
+            <strong>حساب إنستغرام</strong>
+            <span>شاهد التغطيات المصورة والقصص</span>
+          </div>
+        </a>
+
+        <!-- واتساب الحقيقي -->
+        <a href="https://whatsapp.com/channel/0029VbD78BM89ingqgMzDK1O" target="_blank" class="social-card">
+          <div class="social-icon wa">
+            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </div>
+          <div class="social-info">
+            <strong>قناة الواتساب</strong>
+            <span>انضم لتصلك الإعلانات الفورية</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم نموذج الانتساب (أصبح في آخر الصفحة تماماً كما طلبت) -->
   <section id="join">
     <div class="wrap">
-      <div class="section-head" style="text-align: center;">
-        <div class="kicker-line" style="justify-content: center;">
+      <div class="section-head">
+        <div class="kicker-line">
           <span class="dash"></span>
           <span>كن جزءاً من التغيير</span>
           <span class="dash"></span>
         </div>
         <h2>نموذج الانتساب لكتلة القرار الطلابية</h2>
-        <p>املأ بياناتك أدناه لتنضم إلى فريق العمل ولنتمكن من التواصل معك ومشاركتك كافة الأنشطة.</p>
+        <p>املأ بياناتك أدناه لتنضم إلى فريق العمل ولنتمكن من التواصل معك.</p>
       </div>
 
       <div class="form-card">
@@ -421,99 +515,22 @@
       </div>
     </div>
   </section>
-
-  <!-- قسم حسابات التواصل الاجتماعي -->
-  <section id="social" style="background:#fff;">
-    <div class="wrap">
-      <div class="section-head" style="text-align: center;">
-        <div class="kicker-line" style="justify-content: center;">
-          <span class="dash"></span>
-          <span>ابق على تواصل</span>
-          <span class="dash"></span>
-        </div>
-        <h2>حسابات كتلة القرار على منصات التواصل</h2>
-        <p>تابعنا ليصلك كل جديد من أخبار، إعلانات، وبيانات طلابية رسمية.</p>
-      </div>
-
-      <div class="social-grid">
-        <a href="https://web.facebook.com/profile.php?id=61591127655653" target="_blank" class="social-card">
-          <div class="social-icon fb">f</div>
-          <div class="social-info">
-            <strong>صفحة الفيسبوك الرسمية</strong>
-            <span>تابع آخر المنشورات والبيانات والفعاليات</span>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/alqrar_yu?stkn=ajd0YW96bXBmODB0" target="_blank" class="social-card">
-          <div class="social-icon ig">📸</div>
-          <div class="social-info">
-            <strong>حساب إنستغرام</strong>
-            <span>شاهد التغطيات المصورة والقصص اليومية</span>
-          </div>
-        </a>
-
-        <a href="https://whatsapp.com/channel/0029VbD78BM89ingqgMzDK1O" target="_blank" class="social-card">
-          <div class="social-icon wa">💬</div>
-          <div class="social-info">
-            <strong>قناة الواتساب الرسمية</strong>
-            <span>انضم لتصلك الإعلانات الفورية والقرارات</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- قسم كليات جامعة اليرموك الـ 17 -->
-  <section id="tracks">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker-line">
-          <span class="dash"></span>
-          <span>الدليل الأكاديمي الشامل</span>
-        </div>
-        <h2>كليات جامعة اليرموك (17 كلية)</h2>
-        <p>تضم جامعة اليرموك باقة متكاملة من الكليات العلمية والإنسانية:</p>
-      </div>
-
-      <div class="colleges-grid">
-        <div class="college-badge"><div class="college-num">01</div><span>كلية الآداب</span></div>
-        <div class="college-badge"><div class="college-num">02</div><span>كلية العلوم</span></div>
-        <div class="college-badge"><div class="college-num">03</div><span>كلية الأعمال</span></div>
-        <div class="college-badge"><div class="college-num">04</div><span>كلية الحجاوي للهندسة التكنولوجية</span></div>
-        <div class="college-badge"><div class="college-num">05</div><span>كلية الشريعة والدراسات الإسلامية</span></div>
-        <div class="college-badge"><div class="college-num">06</div><span>كلية العلوم التربوية</span></div>
-        <div class="college-badge"><div class="college-num">07</div><span>كلية التربية البدنية وعلوم الرياضة</span></div>
-        <div class="college-badge"><div class="college-num">08</div><span>كلية القانون</span></div>
-        <div class="college-badge"><div class="college-num">09</div><span>كلية الفنون الجميلة</span></div>
-        <div class="college-badge"><div class="college-num">10</div><span>كلية تكنولوجيا المعلومات وعلوم الحاسوب</span></div>
-        <div class="college-badge"><div class="college-num">11</div><span>كلية الآثار والأنثروبولوجيا</span></div>
-        <div class="college-badge"><div class="college-num">12</div><span>كلية السياحة والفنادق</span></div>
-        <div class="college-badge"><div class="college-num">13</div><span>كلية الإعلام</span></div>
-        <div class="college-badge"><div class="college-num">14</div><span>كلية الطب</span></div>
-        <div class="college-badge"><div class="college-num">15</div><span>كلية الصيدلة</span></div>
-        <div class="college-badge"><div class="college-num">16</div><span>كلية التمريض</span></div>
-        <div class="college-badge" style="grid-column: 1 / -1; background: var(--paper-alt);"><div class="college-num" style="background:var(--navy); color:#fff;">17</div><span>الكلية التقنية (دبلوم)</span></div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand" style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-          <strong>كتلة القرار الطلابية - جامعة اليرموك</strong>
-        </div>
-        <p>صوتك الأكاديمي والخدمي الدائم داخل أروقة الجامعة.</p>
+        <div style="font-family:'Cairo',sans-serif; font-weight:800; font-size:15px; color:#fff; margin-bottom:6px;">كتلة القرار الطلابية - جامعة اليرموك</div>
+        <p style="font-size:13px;">صوتك الأكاديمي والخدمي الدائم داخل أروقة الجامعة.</p>
       </div>
       <div>
-        <h5 style="color:#fff; font-family:'Cairo',sans-serif; margin-bottom:12px;">روابط سريعة</h5>
-        <ul>
-          <li><a href="#map">خريطة الجامعة</a></li>
-          <li><a href="#join">نموذج الانتساب</a></li>
-          <li><a href="#social">التواصل الاجتماعي</a></li>
+        <h5 style="color:#fff; font-family:'Cairo',sans-serif; margin-bottom:10px; font-size:14px;">روابط سريعة</h5>
+        <ul style="display:flex; flex-direction:column; gap:6px; font-size:13px;">
+          <li><a href="#identity">هوية الكتلة</a></li>
           <li><a href="#tracks">الكليات (17)</a></li>
+          <li><a href="#social">التواصل الاجتماعي</a></li>
+          <li><a href="#join">نموذج الانتساب</a></li>
         </ul>
       </div>
     </div>
@@ -525,7 +542,6 @@
 </footer>
 
 <script>
-  // Mobile Menu Toggle Logic
   const menuToggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');
   const mobLinks = document.querySelectorAll('.mob-link');
@@ -535,17 +551,16 @@
     menuToggle.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
   });
 
-    mobLinks.forEach(link => {
+  mobLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileNav.classList.remove('active');
       menuToggle.textContent = '☰';
     });
   });
 
-  // WhatsApp Integration Logic & Validation
   const joinForm = document.getElementById('joinForm');
   const successMsg = document.getElementById('successMsg');
-  const TARGET_WHATSAPP = "962776562573"; // رقم الواتساب الرسمي للكتلة
+  const TARGET_WHATSAPP = "962776562573";
 
   joinForm.addEventListener('submit', (e) => {
     e.preventDefault();
