@@ -68,7 +68,7 @@
     display:flex;align-items:center;justify-content:space-between;gap:15px;
   }
   .brand{display:flex;align-items:center;gap:10px;}
-  .brand img{width:42px;height:42px;border-radius:50%;object-fit:cover; border:1px solid var(--line);}
+  .brand img{width:46px;height:46px;border-radius:50%;object-fit:cover; border:1px solid var(--line); background:#fff;}
   .brand-text{display:flex;flex-direction:column;line-height:1.2;}
   .brand-text strong{font-family:'Cairo',sans-serif;font-weight:800;font-size:15px;color:var(--navy);}
   .brand-text small{font-size:11px;color:var(--gray);font-weight:500;}
@@ -168,17 +168,17 @@
   .section-head .kicker-line .dash{width:24px;height:2px;background:var(--red);border-radius:2px;}
   .section-head .kicker-line span{font-size:12.5px;color:var(--gray);font-weight:600;}
   .section-head h2{font-size:clamp(22px, 4.5vw, 32px);font-weight:800;}
-  .section-head p{margin-top:8px;color:#3A4652;font-size:14px;max-width:600px;margin-left:auto;margin-right:auto;}
+  .section-head p{margin-top:8px;color:#3A4652;font-size:14px;max-width:700px;margin-left:auto;margin-right:auto;}
 
-  /* ===== map/logo section ===== */
-  .map-container{
+  /* ===== identity & structure sections ===== */
+  .content-card{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
-    padding:16px;text-align:center;box-shadow:0 10px 25px rgba(5,39,74,0.04);
-    max-width:700px;margin:0 auto;
+    padding:20px;text-align:center;box-shadow:0 10px 25px rgba(5,39,74,0.04);
+    max-width:850px;margin:0 auto;
   }
-  .map-frame{
+  .image-frame{
     width:100%;border-radius:var(--radius-s);overflow:hidden;
-    border:1px solid var(--line);background:var(--paper);
+    border:1px solid var(--line);background:var(--paper);display:flex;justify-content:center;align-items:center;padding:15px;
   }
 
   /* ===== academic tracks (colleges grid) ===== */
@@ -222,7 +222,7 @@
   .social-info strong{display:block;font-family:'Cairo',sans-serif;font-size:15px;color:var(--navy);margin-bottom:2px;}
   .social-info span{font-size:12.5px;color:var(--gray);}
 
-  /* ===== join form section (Now at the end) ===== */
+  /* ===== join form section (at the end) ===== */
   .form-card{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
     padding:24px 20px;max-width:650px;margin:0 auto;box-shadow:0 10px 30px rgba(5,39,74,0.05);
@@ -276,7 +276,8 @@
 <header>
   <div class="nav">
     <div class="brand">
-      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" alt="شعار الكتلة">
+      <!-- الشعار الحقيقي في أعلى الهيدر تماماً -->
+      <img src="https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'48\' fill=\'%2305274A\'/><text x=\'50\' y=\'55\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\' font-family=\'Cairo\'>القرار</text></svg>'" alt="شعار الكتلة">
       <div class="brand-text">
         <strong>كتلة القرار الطلابية</strong>
         <small>جامعة اليرموك</small>
@@ -286,6 +287,7 @@
     <nav class="links">
       <a href="#about">عن الكتلة</a>
       <a href="#identity">هوية الكتلة</a>
+      <a href="#structure">هيكلة الكتلة</a>
       <a href="#tracks">كليات اليرموك</a>
       <a href="#social">التواصل</a>
       <a href="#join">انضم إلينا</a>
@@ -301,6 +303,7 @@
 <div class="mobile-nav" id="mobileNav">
   <a href="#about" class="mob-link">عن الكتلة</a>
   <a href="#identity" class="mob-link">هوية الكتلة</a>
+  <a href="#structure" class="mob-link">هيكلة الكتلة</a>
   <a href="#tracks" class="mob-link">كليات اليرموك</a>
   <a href="#social" class="mob-link">التواصل الاجتماعي</a>
   <a href="#join" class="mob-link">انضم إلينا</a>
@@ -324,7 +327,7 @@
         </div>
         <div class="hero-visual">
           <div class="ring">
-            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" alt="شعار كتلة القرار">
+            <img src="https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'48\' fill=\'%2305274A\'/><text x=\'50\' y=\'55\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\' font-family=\'Cairo\'>القرار</text></svg>'" alt="شعار كتلة القرار">
           </div>
         </div>
       </div>
@@ -359,17 +362,45 @@
         <p>التصميم الرسمي للكتلة الذي يعكس تطلعاتنا الأكاديمية والخدمية داخل جامعة اليرموك.</p>
       </div>
 
-      <div class="map-container">
-        <div class="map-frame" style="padding: 20px; background: #fff; display: flex; justify-content: center; align-items: center;">
-          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" alt="شعار كتلة القرار الرسمي" style="max-height: 320px; width: auto; object-fit: contain;">
+      <div class="content-card">
+        <div class="image-frame">
+          <img src="https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><rect width=\'200\' height=\'200\' fill=\'%2305274A\'/><text x=\'100\' y=\'110\' fill=\'%23fff\' font-size=\'24\' text-anchor=\'middle\' font-family=\'Cairo\'>كتلة القرار</text></svg>'" alt="شعار كتلة القرار الرسمي" style="max-height: 320px; width: auto; object-fit: contain;">
         </div>
         <p style="margin-top: 12px; font-size: 12.5px; color: var(--gray);">شعار كتلة القرار الطلابية - جامعة اليرموك</p>
       </div>
     </div>
   </section>
 
+  <!-- قسم هيكلة الكتلة مع النصوص المضافة -->
+  <section id="structure">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker-line">
+          <span class="dash"></span>
+          <span>الهيكل التنظيمي</span>
+          <span class="dash"></span>
+        </div>
+        <h2>هيكلة كتلة القرار الطلابية</h2>
+        <p>
+          تعلن كتلة القرار الطلابية عن اعتماد هيكلها التنظيمي العام.<br>
+          يأتي هذا اعتمادًا على منهجية العمل الإداري المحددة لتوزيع المهام بين رئاسة الكتلة، الأقسام الفنية، ولجان الكليات؛ لضمان سير المتابعات الطلابية بمهنية ووضوح.<br>
+          <strong>الهيئة الإدارية - كتلة القرار الطلابية</strong><br>
+          <span style="color:var(--red);">#نسمع_نمثل_ننجز</span>
+        </p>
+      </div>
+
+      <div class="content-card" style="max-width: 950px;">
+        <div class="image-frame" style="background: #0e1a24; padding: 10px;">
+          <!-- رابط صورة الهيكلة (يمكنك رفعها وتسميتها structure.png في المستودع) -->
+          <img src="https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/structure.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png'" alt="هيكلة كتلة القرار الطلابية" style="width: 100%; height: auto; object-fit: contain; border-radius: 6px;">
+        </div>
+        <p style="margin-top: 12px; font-size: 12.5px; color: var(--gray);">الهيكل التنظيمي والإداري الرسمي لكتلة القرار الطلابية</p>
+      </div>
+    </div>
+  </section>
+
   <!-- قسم كليات جامعة اليرموك الـ 17 -->
-  <section id="tracks">
+  <section id="tracks" style="background:#fff;">
     <div class="wrap">
       <div class="section-head">
         <div class="kicker-line">
@@ -402,8 +433,8 @@
     </div>
   </section>
 
-  <!-- قسم حسابات التواصل الاجتماعي (شعارات حقيقية SVG) -->
-  <section id="social" style="background:#fff;">
+  <!-- قسم حسابات التواصل الاجتماعي (شعارات SVG حقيقية) -->
+  <section id="social">
     <div class="wrap">
       <div class="section-head">
         <div class="kicker-line">
@@ -452,8 +483,8 @@
     </div>
   </section>
 
-  <!-- قسم نموذج الانتساب (أصبح في آخر الصفحة تماماً كما طلبت) -->
-  <section id="join">
+  <!-- قسم نموذج الانتساب (في آخر الصفحة تماماً كما طلبت) -->
+  <section id="join" style="background:#fff;">
     <div class="wrap">
       <div class="section-head">
         <div class="kicker-line">
@@ -528,6 +559,7 @@
         <h5 style="color:#fff; font-family:'Cairo',sans-serif; margin-bottom:10px; font-size:14px;">روابط سريعة</h5>
         <ul style="display:flex; flex-direction:column; gap:6px; font-size:13px;">
           <li><a href="#identity">هوية الكتلة</a></li>
+          <li><a href="#structure">هيكلة الكتلة</a></li>
           <li><a href="#tracks">الكليات (17)</a></li>
           <li><a href="#social">التواصل الاجتماعي</a></li>
           <li><a href="#join">نموذج الانتساب</a></li>
