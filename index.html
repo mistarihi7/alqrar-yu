@@ -27,240 +27,187 @@
   *{box-sizing:border-box;-webkit-tap-highlight-color: transparent;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans Arabic', sans-serif;
-    font-weight:400;
-    line-height:1.75;
-    -webkit-font-smoothing:antialiased;
-    overflow-x: hidden;
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'IBM Plex Sans Arabic', sans-serif; font-weight:400; line-height:1.75;
+    -webkit-font-smoothing:antialiased; overflow-x: hidden;
   }
-  h1,h2,h3,h4{
-    font-family:'Cairo', sans-serif;
-    margin:0;
-    color:var(--navy);
-    line-height:1.3;
-  }
+  h1,h2,h3,h4{font-family:'Cairo', sans-serif; margin:0; color:var(--navy); line-height:1.3;}
   p{margin:0;}
-  img{max-width:100%;display:block;}
-  a{color:inherit;text-decoration:none;}
-  ul{margin:0;padding:0;list-style:none;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0; list-style:none;}
   button, input, select{font-family:inherit;}
   
-  .wrap{
-    max-width:var(--maxw);
-    margin:0 auto;
-    padding:0 20px;
-    width: 100%;
-  }
-  section{padding:60px 0;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px; width: 100%;}
+  section{padding:50px 0;}
   
-  /* ===== header & mobile menu ===== */
+  /* Header */
   header{
-    position:sticky;top:0;z-index:100;
-    background:rgba(245,245,242,0.95);
-    backdrop-filter:blur(10px);
+    position:sticky; top:0; z-index:100;
+    background:rgba(245,245,242,0.95); backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   .nav{
-    max-width:var(--maxw);margin:0 auto;padding:12px 20px;
-    display:flex;align-items:center;justify-content:space-between;gap:15px;
+    max-width:var(--maxw); margin:0 auto; padding:12px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:15px;
   }
-  .brand{display:flex;align-items:center;gap:10px;}
-  .brand img{width:46px;height:46px;border-radius:50%;object-fit:cover; border:1px solid var(--line); background:#fff;}
-  .brand-text{display:flex;flex-direction:column;line-height:1.2;}
-  .brand-text strong{font-family:'Cairo',sans-serif;font-weight:800;font-size:15px;color:var(--navy);}
-  .brand-text small{font-size:11px;color:var(--gray);font-weight:500;}
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand img{width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid var(--line); background:#fff;}
+  .brand-text{display:flex; flex-direction:column; line-height:1.2;}
+  .brand-text strong{font-family:'Cairo',sans-serif; font-weight:800; font-size:15px; color:var(--navy);}
+  .brand-text small{font-size:11px; color:var(--gray); font-weight:500;}
   
-  nav.links{display:none;align-items:center;gap:25px;}
-  nav.links a{
-    font-size:14px;font-weight:600;color:var(--ink);position:relative;padding:4px 0;
-  }
+  nav.links{display:none; align-items:center; gap:20px;}
+  nav.links a{font-size:14px; font-weight:600; color:var(--ink); position:relative; padding:4px 0;}
   nav.links a::after{
-    content:"";position:absolute;right:0;bottom:0;width:0;height:2px;background:var(--red);
-    transition:width .25s ease;
+    content:""; position:absolute; right:0; bottom:0; width:0; height:2px; background:var(--red); transition:width .25s ease;
   }
   nav.links a:hover::after{width:100%;}
   
   .cta-btn{
-    background:var(--navy);color:#fff;padding:10px 18px;border-radius:var(--radius-s);
-    font-weight:700;font-size:13.5px;white-space:nowrap;transition:background .2s ease;border:none;cursor:pointer;
+    background:var(--navy); color:#fff; padding:10px 18px; border-radius:var(--radius-s);
+    font-weight:700; font-size:13.5px; white-space:nowrap; transition:background .2s ease; border:none; cursor:pointer;
   }
   .cta-btn:hover{background:var(--green-deep);}
   
   .menu-toggle{
-    display:flex;font-size:24px;color:var(--navy);padding:5px;cursor:pointer;background:none;border:none;align-items:center;justify-content:center;
+    display:flex; font-size:24px; color:var(--navy); padding:5px; cursor:pointer; background:none; border:none; align-items:center; justify-content:center;
   }
-
   .mobile-nav {
-    position: fixed;
-    top: 65px;
-    right: -100%;
-    width: 100%;
-    height: calc(100vh - 65px);
-    background: var(--paper);
-    border-top: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    gap: 15px;
-    transition: right 0.3s ease;
-    z-index: 99;
+    position: fixed; top: 65px; right: -100%; width: 100%; height: calc(100vh - 65px);
+    background: var(--paper); border-top: 1px solid var(--line); display: flex; flex-direction: column;
+    padding: 30px; gap: 15px; transition: right 0.3s ease; z-index: 99;
   }
   .mobile-nav.active { right: 0; }
-  .mobile-nav a {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--navy);
-    padding: 10px 0;
-    border-bottom: 1px solid var(--line);
-  }
+  .mobile-nav a { font-size: 17px; font-weight: 700; color: var(--navy); padding: 10px 0; border-bottom: 1px solid var(--line); }
 
-  /* ===== hero ===== */
-  .hero{
-    padding:40px 0 30px;
-    text-align: center;
-  }
-  .hero-grid{
-    display:flex;flex-direction:column;gap:30px;align-items:center;
-  }
+  /* Hero */
+  .hero{padding:30px 0; text-align: center;}
+  .hero-grid{display:flex; flex-direction:column; gap:25px; align-items:center;}
   .hero-eyebrow{
-    display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
-    padding:6px 14px;border-radius:30px;font-size:12px;font-weight:600;color:var(--green-deep);
-    margin-bottom:15px;
+    display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line);
+    padding:6px 14px; border-radius:30px; font-size:12px; font-weight:600; color:var(--green-deep); margin-bottom:15px;
   }
-  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--red);}
-  .hero h1{
-    font-size:clamp(28px, 6vw, 46px);font-weight:900;letter-spacing:-.5px;
-  }
+  .hero-eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--red);}
+  .hero h1{font-size:clamp(26px, 5vw, 42px); font-weight:900; letter-spacing:-.5px;}
   .hero h1 span{color:var(--green);}
-  .hero .lede{
-    margin-top:14px;font-size:15px;color:#334049;max-width:650px;margin-left:auto;margin-right:auto;
-  }
-  .hero-actions{display:flex;gap:10px;margin-top:22px;justify-content:center;flex-wrap:wrap;}
-  
-  .hero-visual{
-    display:flex;align-items:center;justify-content:center;width:100%;
-  }
+  .hero .lede{margin-top:12px; font-size:14.5px; color:#334049; max-width:650px; margin-left:auto; margin-right:auto;}
+  .hero-actions{display:flex; gap:10px; margin-top:18px; justify-content:center; flex-wrap:wrap;}
+  .hero-visual{display:flex; align-items:center; justify-content:center; width:100%;}
   .hero-visual .ring{
-    width:220px;height:220px;border-radius:50%;
-    background:#fff;border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 15px 30px -15px rgba(5,39,74,0.25);
-    padding: 15px;
+    width:180px; height:180px; border-radius:50%; background:#fff; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; box-shadow:0 15px 30px -15px rgba(5,39,74,0.25); padding: 12px;
   }
   .hero-visual img{width:100%; height:100%; object-fit:contain; border-radius: 50%;}
-  
   .hero-pillars{
-    margin-top:30px;display:grid;grid-template-columns:1fr;gap:14px;
-    border-top:1px solid var(--line);padding-top:20px;text-align:right;
+    margin-top:25px; display:grid; grid-template-columns:1fr; gap:12px; border-top:1px solid var(--line); padding-top:20px; text-align:right;
   }
-  .hero-pillars div{background:#fff; padding:16px; border-radius:var(--radius-s); border:1px solid var(--line);}
-  .hero-pillars strong{display:block;font-family:'Cairo',sans-serif;font-weight:800;font-size:15px;color:var(--navy);margin-bottom:4px;}
-  .hero-pillars p{font-size:13px;color:var(--gray);line-height:1.6;}
+  .hero-pillars div{background:#fff; padding:14px; border-radius:var(--radius-s); border:1px solid var(--line);}
+  .hero-pillars strong{display:block; font-family:'Cairo',sans-serif; font-weight:800; font-size:14px; color:var(--navy); margin-bottom:4px;}
+  .hero-pillars p{font-size:12.5px; color:var(--gray); line-height:1.5;}
 
-  /* ===== sections general ===== */
-  .section-head{margin-bottom:30px;text-align:center;}
-  .section-head .kicker-line{
-    display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;
-  }
-  .section-head .kicker-line .dash{width:24px;height:2px;background:var(--red);border-radius:2px;}
-  .section-head .kicker-line span{font-size:12.5px;color:var(--gray);font-weight:600;}
-  .section-head h2{font-size:clamp(22px, 4.5vw, 32px);font-weight:800;}
-  .section-head p{margin-top:8px;color:#3A4652;font-size:14px;max-width:700px;margin-left:auto;margin-right:auto;}
+  /* Sections */
+  .section-head{margin-bottom:25px; text-align:center;}
+  .section-head .kicker-line{display:inline-flex; align-items:center; gap:8px; margin-bottom:8px;}
+  .section-head .kicker-line .dash{width:24px; height:2px; background:var(--red); border-radius:2px;}
+  .section-head .kicker-line span{font-size:12px; color:var(--gray); font-weight:600;}
+  .section-head h2{font-size:clamp(20px, 4vw, 28px); font-weight:800;}
+  .section-head p{margin-top:8px; color:#3A4652; font-size:13.5px; max-width:700px; margin-left:auto; margin-right:auto;}
 
-  /* ===== identity & structure sections ===== */
   .content-card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
-    padding:20px;text-align:center;box-shadow:0 10px 25px rgba(5,39,74,0.04);
-    max-width:850px;margin:0 auto;
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-m);
+    padding:16px; text-align:center; box-shadow:0 10px 25px rgba(5,39,74,0.04); max-width:850px; margin:0 auto;
   }
   .image-frame{
-    width:100%;border-radius:var(--radius-s);overflow:hidden;
-    border:1px solid var(--line);background:var(--paper);display:flex;justify-content:center;align-items:center;padding:15px;
+    width:100%; border-radius:var(--radius-s); overflow:hidden;
+    border:1px solid var(--line); background:#fff; display:flex; justify-content:center; align-items:center; padding:10px;
   }
 
-  /* ===== academic tracks (colleges grid) ===== */
-  .colleges-grid{
-    display:grid;grid-template-columns:1fr;gap:10px;max-width:800px;margin:0 auto;
-  }
+  /* Colleges */
+  .colleges-grid{display:grid; grid-template-columns:1fr; gap:10px; max-width:800px; margin:0 auto;}
   .college-badge{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius-s);
-    padding:12px 16px;display:flex;align-items:center;gap:12px;
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-s);
+    padding:12px 16px; display:flex; align-items:center; gap:12px;
   }
   .college-num{
-    background:var(--paper-alt);color:var(--navy);font-family:'Cairo',sans-serif;
-    font-weight:800;font-size:13px;width:28px;height:28px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;flex:none;
+    background:var(--paper-alt); color:var(--navy); font-family:'Cairo',sans-serif;
+    font-weight:800; font-size:13px; width:28px; height:28px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex:none;
   }
-  .college-badge span:not(.college-num){
-    font-weight:600;font-size:14px;color:var(--navy);
+  .college-badge span:not(.college-num){font-weight:600; font-size:13.5px; color:var(--navy);}
+
+  /* Interactive IT Section Styles */
+  .it-container{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-m);
+    padding:20px; max-width:850px; margin:20px auto 0; box-shadow:0 10px 25px rgba(5,39,74,0.04); text-align:right;
+  }
+  .it-title{font-size:16px; font-weight:800; color:var(--navy); margin-bottom:12px; display:flex; align-items:center; gap:8px;}
+  .majors-grid{display:grid; grid-template-columns:1fr; gap:8px; margin-bottom:20px;}
+  @media(min-width:600px){ .majors-grid{grid-template-columns:repeat(2, 1fr);} }
+  .major-btn{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-s);
+    padding:12px 15px; font-weight:700; font-size:13.5px; color:var(--navy); text-align:right;
+    cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; justify-content:space-between;
+  }
+  .major-btn:hover, .major-btn.active{background:var(--navy); color:#fff; border-color:var(--navy);}
+  .major-btn span.arrow{font-size:12px; opacity:0.7;}
+  
+  .plan-view-box{
+    border-top:1px dashed var(--line); padding-top:20px; display:none; text-align:center;
+  }
+  .plan-view-box.active{display:block;}
+  .plan-title-tag{
+    font-family:'Cairo',sans-serif; font-weight:800; font-size:15px; color:var(--green-deep); margin-bottom:12px;
   }
 
-  /* ===== social links section ===== */
-  .social-grid{
-    display:grid;grid-template-columns:1fr;gap:12px;max-width:700px;margin:0 auto;
-  }
+  /* Social */
+  .social-grid{display:grid; grid-template-columns:1fr; gap:12px; max-width:700px; margin:0 auto;}
   .social-card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
-    padding:16px;display:flex;align-items:center;gap:14px;text-decoration:none;
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-m);
+    padding:16px; display:flex; align-items:center; gap:14px; text-decoration:none;
     transition:transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .social-card:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(5,39,74,0.06);
-  }
-  .social-icon{
-    width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-    flex:none;
-  }
+  .social-icon{width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex:none;}
   .social-icon.fb{background:#1877F2;}
   .social-icon.ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
   .social-icon.wa{background:#25D366;}
-  .social-icon svg{width:24px;height:24px;fill:#ffffff;}
-  .social-info strong{display:block;font-family:'Cairo',sans-serif;font-size:15px;color:var(--navy);margin-bottom:2px;}
-  .social-info span{font-size:12.5px;color:var(--gray);}
+  .social-icon svg{width:24px; height:24px; fill:#ffffff;}
+  .social-info strong{display:block; font-family:'Cairo',sans-serif; font-size:14.5px; color:var(--navy); margin-bottom:2px;}
+  .social-info span{font-size:12px; color:var(--gray);}
 
-  /* ===== join form section (at the end) ===== */
+  /* Join Form */
   .form-card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
-    padding:24px 20px;max-width:650px;margin:0 auto;box-shadow:0 10px 30px rgba(5,39,74,0.05);
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-m);
+    padding:20px; max-width:650px; margin:0 auto; box-shadow:0 10px 30px rgba(5,39,74,0.05);
   }
-  .form-group{margin-bottom:16px;text-align:right;}
-  .form-group label{
-    display:block;font-family:'Cairo',sans-serif;font-weight:700;font-size:13.5px;color:var(--navy);margin-bottom:6px;
-  }
+  .form-group{margin-bottom:14px; text-align:right;}
+  .form-group label{display:block; font-family:'Cairo',sans-serif; font-weight:700; font-size:13px; color:var(--navy); margin-bottom:6px;}
   .form-control{
-    width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:var(--radius-s);
-    background:var(--paper);font-size:14px;color:var(--ink);
+    width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:var(--radius-s);
+    background:var(--paper); font-size:13.5px; color:var(--ink);
   }
-  .form-control:focus{
-    outline:none;border-color:var(--green);background:#fff;box-shadow:0 0 0 3px rgba(8,129,98,0.1);
-  }
-  .form-submit{width:100%;padding:13px;background:var(--green-deep);color:#fff;font-family:'Cairo',sans-serif;font-weight:800;font-size:15px;border-radius:var(--radius-s);border:none;cursor:pointer;}
+  .form-control:focus{outline:none; border-color:var(--green); background:#fff; box-shadow:0 0 0 3px rgba(8,129,98,0.1);}
+  .form-submit{width:100%; padding:12px; background:var(--green-deep); color:#fff; font-family:'Cairo',sans-serif; font-weight:800; font-size:14.5px; border-radius:var(--radius-s); border:none; cursor:pointer;}
   .form-submit:hover{background:var(--green);}
-  
   .success-msg{
-    display:none;background:#E8F4EF;color:var(--green-deep);border:1px solid var(--green);
-    padding:14px;border-radius:var(--radius-s);margin-top:16px;text-align:center;font-weight:700;font-size:14px;
+    display:none; background:#E8F4EF; color:var(--green-deep); border:1px solid var(--green);
+    padding:12px; border-radius:var(--radius-s); margin-top:14px; text-align:center; font-weight:700; font-size:13.5px;
   }
 
-  /* ===== footer ===== */
-  footer{background:var(--navy);color:#B9C4CF;padding:40px 0 20px;text-align: center;}
-  .footer-grid{display:flex;flex-direction:column;gap:20px;padding-bottom:25px;border-bottom:1px solid rgba(255,255,255,0.12);align-items: center;}
-  .footer-bottom{padding-top:15px;display:flex;justify-content:center;font-size:12px;color:#7C90A2;flex-direction:column;gap:6px;}
+  /* Footer */
+  footer{background:var(--navy); color:#B9C4CF; padding:35px 0 20px; text-align: center;}
+  .footer-grid{display:flex; flex-direction:column; gap:20px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.12); align-items: center;}
+  .footer-bottom{padding-top:15px; display:flex; justify-content:center; font-size:11.5px; color:#7C90A2; flex-direction:column; gap:5px;}
 
-  /* Media Queries for larger screens */
   @media (min-width: 768px) {
     .menu-toggle { display: none !important; }
     .mobile-nav { display: none !important; }
     nav.links { display: flex !important; }
-    .hero{text-align: right; padding: 60px 0;}
+    .hero{text-align: right; padding: 50px 0;}
     .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; text-align: right; gap: 30px; }
     .hero .lede { margin-left: 0; }
     .hero-actions { justify-content: flex-start; }
-    .hero-visual .ring { width: 260px; height: 260px; }
+    .hero-visual .ring { width: 220px; height: 220px; }
     .hero-pillars { grid-template-columns: repeat(3, 1fr); }
     .colleges-grid { grid-template-columns: repeat(2, 1fr); }
     .social-grid { grid-template-columns: repeat(3, 1fr); }
@@ -276,8 +223,7 @@
 <header>
   <div class="nav">
     <div class="brand">
-      <!-- الشعار الحقيقي في أعلى الهيدر تماماً -->
-      <img src="https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'48\' fill=\'%2305274A\'/><text x=\'50\' y=\'55\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\' font-family=\'Cairo\'>القرار</text></svg>'" alt="شعار الكتلة">
+      <img src="logo.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png'" alt="شعار الكتلة">
       <div class="brand-text">
         <strong>كتلة القرار الطلابية</strong>
         <small>جامعة اليرموك</small>
@@ -310,6 +256,7 @@
 </div>
 
 <main>
+  <!-- البنر الرئيسي -->
   <section class="hero" id="about">
     <div class="wrap">
       <div class="hero-grid">
@@ -319,7 +266,7 @@
             صوت الطالب الحقيقي في جامعة اليرموك
           </div>
           <h1>نصنع <span>القرار</span> برؤية طلابية واعدة</h1>
-          <p class="lede">منصة كتلة القرار الطلابية؛ بوابتك الشاملة لكل ما تحتاجه أكاديمياً وخدمياً وجغرافياً داخل حرم جامعة اليرموك.</p>
+          <p class="lede">منصة كتلة القرار الطلابية؛ بوابتك الشاملة لكل ما تحتاجه أكاديمياً وخدمياً داخل حرم جامعة اليرموك.</p>
           <div class="hero-actions">
             <a href="#join" class="cta-btn">قدم طلب الانتساب</a>
             <a href="#social" class="cta-btn" style="background:var(--paper-alt); color:var(--navy); border:1px solid var(--line);">تواصل معنا</a>
@@ -327,7 +274,7 @@
         </div>
         <div class="hero-visual">
           <div class="ring">
-            <img src="https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'48\' fill=\'%2305274A\'/><text x=\'50\' y=\'55\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\' font-family=\'Cairo\'>القرار</text></svg>'" alt="شعار كتلة القرار">
+            <img src="logo.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png'" alt="شعار كتلة القرار">
           </div>
         </div>
       </div>
@@ -349,7 +296,7 @@
     </div>
   </section>
 
-  <!-- قسم شعار وهُوية الكتلة -->
+  <!-- قسم هُوية وشعار الكتلة -->
   <section id="identity" style="background:#fff;">
     <div class="wrap">
       <div class="section-head">
@@ -364,51 +311,51 @@
 
       <div class="content-card">
         <div class="image-frame">
-          <img src="https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><rect width=\'200\' height=\'200\' fill=\'%2305274A\'/><text x=\'100\' y=\'110\' fill=\'%23fff\' font-size=\'24\' text-anchor=\'middle\' font-family=\'Cairo\'>كتلة القرار</text></svg>'" alt="شعار كتلة القرار الرسمي" style="max-height: 320px; width: auto; object-fit: contain;">
+          <img src="logo.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png'" alt="شعار كتلة القرار الرسمي" style="max-height: 280px; width: auto; object-fit: contain;">
         </div>
-        <p style="margin-top: 12px; font-size: 12.5px; color: var(--gray);">شعار كتلة القرار الطلابية - جامعة اليرموك</p>
+        <p style="margin-top: 10px; font-size: 12px; color: var(--gray);">شعار كتلة القرار الطلابية - جامعة اليرموك</p>
       </div>
     </div>
   </section>
 
-  <!-- قسم هيكلة الكتلة مع النصوص المضافة -->
+  <!-- قسم الهيكل التنظيمي -->
   <section id="structure">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" style="margin-bottom: 20px;">
         <div class="kicker-line">
           <span class="dash"></span>
           <span>الهيكل التنظيمي</span>
           <span class="dash"></span>
         </div>
         <h2>هيكلة كتلة القرار الطلابية</h2>
-        <p>
+        <p style="margin-top: 12px; font-size: 14px; line-height: 1.8; color: var(--navy); font-weight: 600;">
           تعلن كتلة القرار الطلابية عن اعتماد هيكلها التنظيمي العام.<br>
           يأتي هذا اعتمادًا على منهجية العمل الإداري المحددة لتوزيع المهام بين رئاسة الكتلة، الأقسام الفنية، ولجان الكليات؛ لضمان سير المتابعات الطلابية بمهنية ووضوح.<br>
-          <strong>الهيئة الإدارية - كتلة القرار الطلابية</strong><br>
-          <span style="color:var(--red);">#نسمع_نمثل_ننجز</span>
+          <span style="display:block; margin-top:8px; color:var(--ink);">الهيئة الإدارية - كتلة القرار الطلابية</span>
+          <span style="display:block; margin-top:4px; color:var(--red); font-weight:800;">#نسمع_نمثل_ننجز</span>
         </p>
       </div>
 
       <div class="content-card" style="max-width: 950px;">
-        <div class="image-frame" style="background: #0e1a24; padding: 10px;">
-          <!-- رابط صورة الهيكلة (يمكنك رفعها وتسميتها structure.png في المستودع) -->
-          <img src="https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/structure.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png'" alt="هيكلة كتلة القرار الطلابية" style="width: 100%; height: auto; object-fit: contain; border-radius: 6px;">
+        <div class="image-frame" style="background: #fff; padding: 5px;">
+          <img src="structure.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/structure.png'" alt="هيكلة كتلة القرار الطلابية" style="width: 100%; height: auto; object-fit: contain; border-radius: 6px;">
         </div>
-        <p style="margin-top: 12px; font-size: 12.5px; color: var(--gray);">الهيكل التنظيمي والإداري الرسمي لكتلة القرار الطلابية</p>
+        <p style="margin-top: 10px; font-size: 12px; color: var(--gray);">الهيكل التنظيمي والإداري الرسمي لكتلة القرار الطلابية</p>
       </div>
     </div>
   </section>
 
-  <!-- قسم كليات جامعة اليرموك الـ 17 -->
+  <!-- قسم كليات جامعة اليرموك والخطط التفاعلية -->
   <section id="tracks" style="background:#fff;">
     <div class="wrap">
       <div class="section-head">
         <div class="kicker-line">
           <span class="dash"></span>
           <span>الدليل الأكاديمي الشامل</span>
+          <span class="dash"></span>
         </div>
         <h2>كليات جامعة اليرموك (17 كلية)</h2>
-        <p>تضم جامعة اليرموك باقة متكاملة من الكليات العلمية والإنسانية:</p>
+        <p>انقر على **كلية تكنولوجيا المعلومات وعلوم الحاسوب** أدناه لاستعراض تخصصاتها وخططها الشجرية:</p>
       </div>
 
       <div class="colleges-grid">
@@ -421,7 +368,13 @@
         <div class="college-badge"><div class="college-num">07</div><span>كلية التربية البدنية وعلوم الرياضة</span></div>
         <div class="college-badge"><div class="college-num">08</div><span>كلية القانون</span></div>
         <div class="college-badge"><div class="college-num">09</div><span>كلية الفنون الجميلة</span></div>
-        <div class="college-badge"><div class="college-num">10</div><span>كلية تكنولوجيا المعلومات وعلوم الحاسوب</span></div>
+        
+        <!-- كلية تكنولوجيا المعلومات التفاعلية -->
+        <div class="college-badge" id="itCollegeBtn" style="border: 2px solid var(--green); cursor: pointer; background: #f4faf8;" onclick="toggleITMajors()">
+          <div class="college-num" style="background:var(--green); color:#fff;">10</div>
+          <span style="color:var(--green-deep); font-weight:800;">كلية تكنولوجيا المعلومات وعلوم الحاسوب (اضغط هنا للعرض)</span>
+        </div>
+
         <div class="college-badge"><div class="college-num">11</div><span>كلية الآثار والأنثروبولوجيا</span></div>
         <div class="college-badge"><div class="college-num">12</div><span>كلية السياحة والفنادق</span></div>
         <div class="college-badge"><div class="college-num">13</div><span>كلية الإعلام</span></div>
@@ -430,10 +383,46 @@
         <div class="college-badge"><div class="college-num">16</div><span>كلية التمريض</span></div>
         <div class="college-badge" style="grid-column: 1 / -1; background: var(--paper-alt);"><div class="college-num" style="background:var(--navy); color:#fff;">17</div><span>الكلية التقنية (دبلوم)</span></div>
       </div>
+
+      <!-- تخصصات كلية تكنولوجيا المعلومات (تظهر عند النقر) -->
+      <div class="it-container" id="itMajorsContainer" style="display: none;">
+        <div class="it-title">💻 تخصصات كلية تكنولوجيا المعلومات وعلوم الحاسوب (اختر التخصص لعرض الخطة الشجرية):</div>
+        
+        <div class="majors-grid">
+          <button class="major-btn" onclick="showPlan('ai', 'علم البيانات و الذكاء الاصطناعي', 'plan-ai.png')">
+            <span>علم البيانات والذكاء الاصطناعي</span> <span class="arrow">▼</span>
+          </button>
+          <button class="major-btn" onclick="showPlan('cis', 'نظم معلومات حاسوبية', 'plan-cis.png')">
+            <span>نظم معلومات حاسوبية</span> <span class="arrow">▼</span>
+          </button>
+          <button class="major-btn" onclick="showPlan('cyber', 'الأمن السيبراني', 'plan-cyber.png')">
+            <span>الأمن السيبراني</span> <span class="arrow">▼</span>
+          </button>
+          <button class="major-btn" onclick="showPlan('bit', 'تكنولوجيا معلومات الأعمال', 'plan-bit.png')">
+            <span>تكنولوجيا معلومات الأعمال</span> <span class="arrow">▼</span>
+          </button>
+          <button class="major-btn" onclick="showPlan('cs', 'علوم الحاسوب', 'plan-cs.png')">
+            <span>علوم الحاسوب</span> <span class="arrow">▼</span>
+          </button>
+          <button class="major-btn" onclick="showPlan('games', 'الواقع الرقمي وتطوير الألعاب', 'plan-games.png')">
+            <span>الواقع الرقمي وتطوير الألعاب</span> <span class="arrow">▼</span>
+          </button>
+        </div>
+
+        <!-- صندوق عرض الخطة الشجرية للتخصص المختار -->
+        <div class="plan-view-box" id="planViewBox">
+          <div class="plan-title-tag" id="planTitleText">الخطة الشجرية</div>
+          <div class="image-frame" style="background:#fff; padding:5px;">
+            <img id="planImage" src="" alt="الخطة الشجرية للتخصص" style="width:100%; height:auto; object-fit:contain; border-radius:6px;">
+          </div>
+          <p style="margin-top: 10px; font-size: 12px; color: var(--gray);">الخطة الدراسية الشجرية الرسمية المعتمدة</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- قسم حسابات التواصل الاجتماعي (شعارات SVG حقيقية) -->
+  <!-- قسم حسابات التواصل الاجتماعي -->
   <section id="social">
     <div class="wrap">
       <div class="section-head">
@@ -447,7 +436,6 @@
       </div>
 
       <div class="social-grid">
-        <!-- فيسبوك الحقيقي -->
         <a href="https://web.facebook.com/profile.php?id=61591127655653" target="_blank" class="social-card">
           <div class="social-icon fb">
             <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -458,7 +446,6 @@
           </div>
         </a>
 
-        <!-- إنستغرام الحقيقي -->
         <a href="https://www.instagram.com/alqrar_yu?stkn=ajd0YW96bXBmODB0" target="_blank" class="social-card">
           <div class="social-icon ig">
             <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -469,7 +456,6 @@
           </div>
         </a>
 
-        <!-- واتساب الحقيقي -->
         <a href="https://whatsapp.com/channel/0029VbD78BM89ingqgMzDK1O" target="_blank" class="social-card">
           <div class="social-icon wa">
             <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -483,7 +469,7 @@
     </div>
   </section>
 
-  <!-- قسم نموذج الانتساب (في آخر الصفحة تماماً كما طلبت) -->
+  <!-- نموذج الانتساب -->
   <section id="join" style="background:#fff;">
     <div class="wrap">
       <div class="section-head">
@@ -552,12 +538,12 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div style="font-family:'Cairo',sans-serif; font-weight:800; font-size:15px; color:#fff; margin-bottom:6px;">كتلة القرار الطلابية - جامعة اليرموك</div>
-        <p style="font-size:13px;">صوتك الأكاديمي والخدمي الدائم داخل أروقة الجامعة.</p>
+        <div style="font-family:'Cairo',sans-serif; font-weight:800; font-size:14.5px; color:#fff; margin-bottom:6px;">كتلة القرار الطلابية - جامعة اليرموك</div>
+        <p style="font-size:12.5px;">صوتك الأكاديمي والخدمي الدائم داخل أروقة الجامعة.</p>
       </div>
       <div>
-        <h5 style="color:#fff; font-family:'Cairo',sans-serif; margin-bottom:10px; font-size:14px;">روابط سريعة</h5>
-        <ul style="display:flex; flex-direction:column; gap:6px; font-size:13px;">
+        <h5 style="color:#fff; font-family:'Cairo',sans-serif; margin-bottom:8px; font-size:13.5px;">روابط سريعة</h5>
+        <ul style="display:flex; flex-direction:column; gap:5px; font-size:12.5px;">
           <li><a href="#identity">هوية الكتلة</a></li>
           <li><a href="#structure">هيكلة الكتلة</a></li>
           <li><a href="#tracks">الكليات (17)</a></li>
@@ -574,6 +560,7 @@
 </footer>
 
 <script>
+  // Mobile Menu Toggle
   const menuToggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');
   const mobLinks = document.querySelectorAll('.mob-link');
@@ -590,6 +577,35 @@
     });
   });
 
+  // IT College Majors & Plans Toggle Logic
+  function toggleITMajors() {
+    const container = document.getElementById('itMajorsContainer');
+    if (container.style.display === 'none' || container.style.display === '') {
+      container.style.display = 'block';
+      container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      container.style.display = 'none';
+    }
+  }
+
+  function showPlan(majorKey, majorName, fileName) {
+    const box = document.getElementById('planViewBox');
+    const title = document.getElementById('planTitleText');
+    const img = document.getElementById('planImage');
+
+    title.textContent = `الخطة الشجرية لتخصص: ${majorName}`;
+    
+    // ربط مباشر مع ملفات جيت هب مع استخدام بديل احتياطي محلي في حال لم تحمل الصورة بعد
+    img.src = fileName;
+    img.onerror = function() {
+      this.src = `https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/${fileName}`;
+    };
+
+    box.classList.add('active');
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Join Form WhatsApp Submission
   const joinForm = document.getElementById('joinForm');
   const successMsg = document.getElementById('successMsg');
   const TARGET_WHATSAPP = "962776562573";
