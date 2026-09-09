@@ -116,44 +116,57 @@
 
   .content-card{
     background:#fff; border:1px solid var(--line); border-radius:var(--radius-m);
-    padding:16px; text-align:center; box-shadow:0 10px 25px rgba(5,39,74,0.04); max-width:850px; margin:0 auto;
+    padding:16px; text-align:center; box-shadow:0 10px 25px rgba(5,39,74,0.04); max-width:950px; margin:0 auto;
   }
   .image-frame{
     width:100%; border-radius:var(--radius-s); overflow:hidden;
-    border:1px solid var(--line); background:#fff; display:flex; justify-content:center; align-items:center; padding:10px;
+    border:1px solid var(--line); background:#fff; display:flex; justify-content:center; align-items:center; padding:5px;
   }
 
-  /* Colleges */
-  .colleges-grid{display:grid; grid-template-columns:1fr; gap:10px; max-width:800px; margin:0 auto;}
+  /* Colleges Interactive Grid */
+  .colleges-grid{display:grid; grid-template-columns:1fr; gap:10px; max-width:850px; margin:0 auto;}
   .college-badge{
     background:#fff; border:1px solid var(--line); border-radius:var(--radius-s);
-    padding:12px 16px; display:flex; align-items:center; gap:12px;
+    padding:12px 16px; display:flex; align-items:center; gap:12px; cursor:pointer;
+    transition:all 0.2s ease; user-select:none;
+  }
+  .college-badge:hover, .college-badge.active{
+    border-color:var(--green); background:#f4faf8; transform:translateY(-2px);
   }
   .college-num{
     background:var(--paper-alt); color:var(--navy); font-family:'Cairo',sans-serif;
     font-weight:800; font-size:13px; width:28px; height:28px; border-radius:50%;
     display:flex; align-items:center; justify-content:center; flex:none;
   }
-  .college-badge span:not(.college-num){font-weight:600; font-size:13.5px; color:var(--navy);}
+  .college-badge.active .college-num{background:var(--green); color:#fff;}
+  .college-badge span:not(.college-num){font-weight:700; font-size:13.5px; color:var(--navy);}
 
-  /* Interactive IT Section Styles */
-  .it-container{
-    background:#fff; border:1px solid var(--line); border-radius:var(--radius-m);
-    padding:20px; max-width:850px; margin:20px auto 0; box-shadow:0 10px 25px rgba(5,39,74,0.04); text-align:right;
+  /* Dynamic College Details Box */
+  .college-details-box{
+    background:#fff; border:1px solid var(--green); border-radius:var(--radius-m);
+    padding:20px; max-width:850px; margin:20px auto 0; box-shadow:0 10px 25px rgba(5,39,74,0.06); text-align:right;
+    display:none; animation:fadeIn 0.3s ease-in-out;
   }
-  .it-title{font-size:16px; font-weight:800; color:var(--navy); margin-bottom:12px; display:flex; align-items:center; gap:8px;}
-  .majors-grid{display:grid; grid-template-columns:1fr; gap:8px; margin-bottom:20px;}
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .college-details-title{font-size:17px; font-weight:800; color:var(--navy); margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+  .college-details-text{font-size:13.5px; color:#3A4652; line-height:1.7; background:var(--paper); padding:12px 15px; border-radius:var(--radius-s); border-right:3px solid var(--green);}
+
+  /* IT Majors Section Inside Details */
+  .it-majors-section{margin-top:20px; border-top:1px dashed var(--line); padding-top:18px;}
+  .majors-grid{display:grid; grid-template-columns:1fr; gap:8px; margin-top:12px;}
   @media(min-width:600px){ .majors-grid{grid-template-columns:repeat(2, 1fr);} }
+  
   .major-btn{
     background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-s);
     padding:12px 15px; font-weight:700; font-size:13.5px; color:var(--navy); text-align:right;
     cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; justify-content:space-between;
   }
   .major-btn:hover, .major-btn.active{background:var(--navy); color:#fff; border-color:var(--navy);}
-  .major-btn span.arrow{font-size:12px; opacity:0.7;}
-  
+  .major-btn span.arrow{font-size:12px; opacity:0.8;}
+
   .plan-view-box{
-    border-top:1px dashed var(--line); padding-top:20px; display:none; text-align:center;
+    border-top:1px dashed var(--line); padding-top:20px; margin-top:20px; display:none; text-align:center;
   }
   .plan-view-box.active{display:block;}
   .plan-title-tag{
@@ -232,9 +245,9 @@
     
     <nav class="links">
       <a href="#about">عن الكتلة</a>
-      <a href="#identity">هوية الكتلة</a>
+      <a href="#map">خريطة الجامعة</a>
       <a href="#structure">هيكلة الكتلة</a>
-      <a href="#tracks">كليات اليرموك</a>
+      <a href="#tracks">الكليات والخطط</a>
       <a href="#social">التواصل</a>
       <a href="#join">انضم إلينا</a>
     </nav>
@@ -248,9 +261,9 @@
 
 <div class="mobile-nav" id="mobileNav">
   <a href="#about" class="mob-link">عن الكتلة</a>
-  <a href="#identity" class="mob-link">هوية الكتلة</a>
+  <a href="#map" class="mob-link">خريطة الجامعة</a>
   <a href="#structure" class="mob-link">هيكلة الكتلة</a>
-  <a href="#tracks" class="mob-link">كليات اليرموك</a>
+  <a href="#tracks" class="mob-link">الكليات والخطط</a>
   <a href="#social" class="mob-link">التواصل الاجتماعي</a>
   <a href="#join" class="mob-link">انضم إلينا</a>
 </div>
@@ -296,24 +309,24 @@
     </div>
   </section>
 
-  <!-- قسم هُوية وشعار الكتلة -->
-  <section id="identity" style="background:#fff;">
+  <!-- قسم خريطة جامعة اليرموك (بديل الهوية والشعار) -->
+  <section id="map" style="background:#fff;">
     <div class="wrap">
       <div class="section-head">
         <div class="kicker-line">
           <span class="dash"></span>
-          <span>شعارنا ورمزنا</span>
+          <span>دليل الحرم الجامعي</span>
           <span class="dash"></span>
         </div>
-        <h2>هُوية كتلة القرار الطلابية</h2>
-        <p>التصميم الرسمي للكتلة الذي يعكس تطلعاتنا الأكاديمية والخدمية داخل جامعة اليرموك.</p>
+        <h2>خريطة جامعة اليرموك</h2>
+        <p>دليل إرشادي مصور لتسهيل تنقل الطلبة والتعرف على أماكن الكليات، المباني الإدارية والمرافق الحيوية.</p>
       </div>
 
       <div class="content-card">
         <div class="image-frame">
-          <img src="logo.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/logo.png'" alt="شعار كتلة القرار الرسمي" style="max-height: 280px; width: auto; object-fit: contain;">
+          <img src="campus-map.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/campus-map.png'" alt="خريطة جامعة اليرموك التفصيلية" style="width: 100%; height: auto; object-fit: contain;">
         </div>
-        <p style="margin-top: 10px; font-size: 12px; color: var(--gray);">شعار كتلة القرار الطلابية - جامعة اليرموك</p>
+        <p style="margin-top: 10px; font-size: 12px; color: var(--gray);">الخريطة الرسمية التوضيحية لمعالم وحرم جامعة اليرموك</p>
       </div>
     </div>
   </section>
@@ -336,16 +349,16 @@
         </p>
       </div>
 
-      <div class="content-card" style="max-width: 950px;">
-        <div class="image-frame" style="background: #fff; padding: 5px;">
-          <img src="structure.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/structure.png'" alt="هيكلة كتلة القرار الطلابية" style="width: 100%; height: auto; object-fit: contain; border-radius: 6px;">
+      <div class="content-card">
+        <div class="image-frame">
+          <img src="structure.png" onerror="this.src='https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/structure.png'" alt="هيكلة كتلة القرار الطلابية" style="width: 100%; height: auto; object-fit: contain;">
         </div>
         <p style="margin-top: 10px; font-size: 12px; color: var(--gray);">الهيكل التنظيمي والإداري الرسمي لكتلة القرار الطلابية</p>
       </div>
     </div>
   </section>
 
-  <!-- قسم كليات جامعة اليرموك والخطط التفاعلية -->
+  <!-- قسم الكليات والخطط الشجرية والنبذ التعريفية -->
   <section id="tracks" style="background:#fff;">
     <div class="wrap">
       <div class="section-head">
@@ -354,68 +367,80 @@
           <span>الدليل الأكاديمي الشامل</span>
           <span class="dash"></span>
         </div>
-        <h2>كليات جامعة اليرموك (17 كلية)</h2>
-        <p>انقر على **كلية تكنولوجيا المعلومات وعلوم الحاسوب** أدناه لاستعراض تخصصاتها وخططها الشجرية:</p>
+        <h2>الخطط الشجرية ونبذة عن كليات جامعة اليرموك</h2>
+        <p>اضغط على أي كلية لعرض **نبذة تعريفية عنها**، أو اضغط على **كلية تكنولوجيا المعلومات** لعرض نبذتها وتخصصاتها والخطط الشجرية مباشرة:</p>
       </div>
 
+      <!-- شبكة الكليات (17 كلية) -->
       <div class="colleges-grid">
-        <div class="college-badge"><div class="college-num">01</div><span>كلية الآداب</span></div>
-        <div class="college-badge"><div class="college-num">02</div><span>كلية العلوم</span></div>
-        <div class="college-badge"><div class="college-num">03</div><span>كلية الأعمال</span></div>
-        <div class="college-badge"><div class="college-num">04</div><span>كلية الحجاوي للهندسة التكنولوجية</span></div>
-        <div class="college-badge"><div class="college-num">05</div><span>كلية الشريعة والدراسات الإسلامية</span></div>
-        <div class="college-badge"><div class="college-num">06</div><span>كلية العلوم التربوية</span></div>
-        <div class="college-badge"><div class="college-num">07</div><span>كلية التربية البدنية وعلوم الرياضة</span></div>
-        <div class="college-badge"><div class="college-num">08</div><span>كلية القانون</span></div>
-        <div class="college-badge"><div class="college-num">09</div><span>كلية الفنون الجميلة</span></div>
+        <div class="college-badge" onclick="selectCollege(0)"><div class="college-num">01</div><span>كلية الآداب</span></div>
+        <div class="college-badge" onclick="selectCollege(1)"><div class="college-num">02</div><span>كلية العلوم</span></div>
+        <div class="college-badge" onclick="selectCollege(2)"><div class="college-num">03</div><span>كلية الأعمال</span></div>
+        <div class="college-badge" onclick="selectCollege(3)"><div class="college-num">04</div><span>كلية الحجاوي للهندسة التكنولوجية</span></div>
+        <div class="college-badge" onclick="selectCollege(4)"><div class="college-num">05</div><span>كلية الشريعة والدراسات الإسلامية</span></div>
+        <div class="college-badge" onclick="selectCollege(5)"><div class="college-num">06</div><span>كلية العلوم التربوية</span></div>
+        <div class="college-badge" onclick="selectCollege(6)"><div class="college-num">07</div><span>كلية التربية البدنية وعلوم الرياضة</span></div>
+        <div class="college-badge" onclick="selectCollege(7)"><div class="college-num">08</div><span>كلية القانون</span></div>
+        <div class="college-badge" onclick="selectCollege(8)"><div class="college-num">09</div><span>كلية الفنون الجميلة</span></div>
         
-        <!-- كلية تكنولوجيا المعلومات التفاعلية -->
-        <div class="college-badge" id="itCollegeBtn" style="border: 2px solid var(--green); cursor: pointer; background: #f4faf8;" onclick="toggleITMajors()">
+        <!-- كلية تكنولوجيا المعلومات مميزة -->
+        <div class="college-badge" onclick="selectCollege(9)" style="border: 2px solid var(--green);">
           <div class="college-num" style="background:var(--green); color:#fff;">10</div>
-          <span style="color:var(--green-deep); font-weight:800;">كلية تكنولوجيا المعلومات وعلوم الحاسوب (اضغط هنا للعرض)</span>
+          <span style="color:var(--green-deep); font-weight:800;">كلية تكنولوجيا المعلومات وعلوم الحاسوب</span>
         </div>
 
-        <div class="college-badge"><div class="college-num">11</div><span>كلية الآثار والأنثروبولوجيا</span></div>
-        <div class="college-badge"><div class="college-num">12</div><span>كلية السياحة والفنادق</span></div>
-        <div class="college-badge"><div class="college-num">13</div><span>كلية الإعلام</span></div>
-        <div class="college-badge"><div class="college-num">14</div><span>كلية الطب</span></div>
-        <div class="college-badge"><div class="college-num">15</div><span>كلية الصيدلة</span></div>
-        <div class="college-badge"><div class="college-num">16</div><span>كلية التمريض</span></div>
-        <div class="college-badge" style="grid-column: 1 / -1; background: var(--paper-alt);"><div class="college-num" style="background:var(--navy); color:#fff;">17</div><span>الكلية التقنية (دبلوم)</span></div>
+        <div class="college-badge" onclick="selectCollege(10)"><div class="college-num">11</div><span>كلية الآثار والأنثروبولوجيا</span></div>
+        <div class="college-badge" onclick="selectCollege(11)"><div class="college-num">12</div><span>كلية السياحة والفنادق</span></div>
+        <div class="college-badge" onclick="selectCollege(12)"><div class="college-num">13</div><span>كلية الإعلام</span></div>
+        <div class="college-badge" onclick="selectCollege(13)"><div class="college-num">14</div><span>كلية الطب</span></div>
+        <div class="college-badge" onclick="selectCollege(14)"><div class="college-num">15</div><span>كلية الصيدلة</span></div>
+        <div class="college-badge" onclick="selectCollege(15)"><div class="college-num">16</div><span>كلية التمريض</span></div>
+        <div class="college-badge" onclick="selectCollege(16)" style="grid-column: 1 / -1; background: var(--paper-alt);"><div class="college-num" style="background:var(--navy); color:#fff;">17</div><span>الكلية التقنية (دبلوم)</span></div>
       </div>
 
-      <!-- تخصصات كلية تكنولوجيا المعلومات (تظهر عند النقر) -->
-      <div class="it-container" id="itMajorsContainer" style="display: none;">
-        <div class="it-title">💻 تخصصات كلية تكنولوجيا المعلومات وعلوم الحاسوب (اختر التخصص لعرض الخطة الشجرية):</div>
-        
-        <div class="majors-grid">
-          <button class="major-btn" onclick="showPlan('ai', 'علم البيانات و الذكاء الاصطناعي', 'plan-ai.png')">
-            <span>علم البيانات والذكاء الاصطناعي</span> <span class="arrow">▼</span>
-          </button>
-          <button class="major-btn" onclick="showPlan('cis', 'نظم معلومات حاسوبية', 'plan-cis.png')">
-            <span>نظم معلومات حاسوبية</span> <span class="arrow">▼</span>
-          </button>
-          <button class="major-btn" onclick="showPlan('cyber', 'الأمن السيبراني', 'plan-cyber.png')">
-            <span>الأمن السيبراني</span> <span class="arrow">▼</span>
-          </button>
-          <button class="major-btn" onclick="showPlan('bit', 'تكنولوجيا معلومات الأعمال', 'plan-bit.png')">
-            <span>تكنولوجيا معلومات الأعمال</span> <span class="arrow">▼</span>
-          </button>
-          <button class="major-btn" onclick="showPlan('cs', 'علوم الحاسوب', 'plan-cs.png')">
-            <span>علوم الحاسوب</span> <span class="arrow">▼</span>
-          </button>
-          <button class="major-btn" onclick="showPlan('games', 'الواقع الرقمي وتطوير الألعاب', 'plan-games.png')">
-            <span>الواقع الرقمي وتطوير الألعاب</span> <span class="arrow">▼</span>
-          </button>
+      <!-- صندوق تفاصيل الكلية المعروضة تفاعلياً -->
+      <div class="college-details-box" id="collegeDetailsBox">
+        <div class="college-details-title">
+          <span id="collegeIcon">🎓</span>
+          <span id="collegeTitleName">اسم الكلية</span>
+        </div>
+        <div class="college-details-text" id="collegeAboutText">
+          نبذة عن الكلية المحددة...
         </div>
 
-        <!-- صندوق عرض الخطة الشجرية للتخصص المختار -->
-        <div class="plan-view-box" id="planViewBox">
-          <div class="plan-title-tag" id="planTitleText">الخطة الشجرية</div>
-          <div class="image-frame" style="background:#fff; padding:5px;">
-            <img id="planImage" src="" alt="الخطة الشجرية للتخصص" style="width:100%; height:auto; object-fit:contain; border-radius:6px;">
+        <!-- تخصصات كلية تكنولوجيا المعلومات (تظهر فقط عند اختيار كلية IT) -->
+        <div class="it-majors-section" id="itMajorsSection" style="display: none;">
+          <div style="font-weight: 800; color: var(--navy); font-size: 14.5px;">💻 تخصصات الكلية (اختر التخصص لاستعراض خطته الشجرية):</div>
+          
+          <div class="majors-grid">
+            <button class="major-btn" onclick="showPlan('علم البيانات والذكاء الاصطناعي', 'plan-ai.png', this)">
+              <span>علم البيانات والذكاء الاصطناعي</span> <span class="arrow">▼</span>
+            </button>
+            <button class="major-btn" onclick="showPlan('نظم معلومات حاسوبية', 'plan-cis.png', this)">
+              <span>نظم معلومات حاسوبية</span> <span class="arrow">▼</span>
+            </button>
+            <button class="major-btn" onclick="showPlan('الأمن السيبراني', 'plan-cyber.png', this)">
+              <span>الأمن السيبراني</span> <span class="arrow">▼</span>
+            </button>
+            <button class="major-btn" onclick="showPlan('تكنولوجيا معلومات الأعمال', 'plan-bit.png', this)">
+              <span>تكنولوجيا معلومات الأعمال</span> <span class="arrow">▼</span>
+            </button>
+            <button class="major-btn" onclick="showPlan('علوم الحاسوب', 'plan-cs.png', this)">
+              <span>علوم الحاسوب</span> <span class="arrow">▼</span>
+            </button>
+            <button class="major-btn" onclick="showPlan('الواقع الرقمي وتطوير الألعاب', 'plan-games.png', this)">
+              <span>الواقع الرقمي وتطوير الألعاب</span> <span class="arrow">▼</span>
+            </button>
           </div>
-          <p style="margin-top: 10px; font-size: 12px; color: var(--gray);">الخطة الدراسية الشجرية الرسمية المعتمدة</p>
+
+          <!-- صندوق عرض الخطة الشجرية للتخصص -->
+          <div class="plan-view-box" id="planViewBox">
+            <div class="plan-title-tag" id="planTitleText">الخطة الشجرية</div>
+            <div class="image-frame" style="background:#fff; padding:5px;">
+              <img id="planImage" src="" alt="الخطة الشجرية للتخصص" style="width:100%; height:auto; object-fit:contain; border-radius:6px;">
+            </div>
+            <p style="margin-top: 10px; font-size: 12px; color: var(--gray);">الخطة الدراسية الشجرية الرسمية المعتمدة</p>
+          </div>
         </div>
       </div>
 
@@ -544,9 +569,9 @@
       <div>
         <h5 style="color:#fff; font-family:'Cairo',sans-serif; margin-bottom:8px; font-size:13.5px;">روابط سريعة</h5>
         <ul style="display:flex; flex-direction:column; gap:5px; font-size:12.5px;">
-          <li><a href="#identity">هوية الكتلة</a></li>
+          <li><a href="#map">خريطة الجامعة</a></li>
           <li><a href="#structure">هيكلة الكتلة</a></li>
-          <li><a href="#tracks">الكليات (17)</a></li>
+          <li><a href="#tracks">الكليات والخطط</a></li>
           <li><a href="#social">التواصل الاجتماعي</a></li>
           <li><a href="#join">نموذج الانتساب</a></li>
         </ul>
@@ -577,32 +602,76 @@
     });
   });
 
-  // IT College Majors & Plans Toggle Logic
-  function toggleITMajors() {
-    const container = document.getElementById('itMajorsContainer');
-    if (container.style.display === 'none' || container.style.display === '') {
-      container.style.display = 'block';
-      container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  // Data Array for all 17 Colleges
+  const collegesData = [
+    { name: "كلية الآداب", about: "تعد من أعرق كليات جامعة اليرموك، وتضم أقسام اللغات (العربية، الإنجليزية، اللغات الحديثة)، التاريخ، الجغرافيا، والعلوم الاجتماعية، وتهدف إلى بناء حصانة فكرية ولغوية متميزة للطلبة." },
+    { name: "كلية العلوم", about: "صرح علمي متميز يضم أقسام الرياضيات، الفيزياء، الكيمياء، العلوم الحياتية، الإحصاء، والأرض والبيئة، وتوفر مختبرات حديثة للبحث العلمي والتطبيق العملي." },
+    { name: "كلية الأعمال", about: "تُعنى بتأهيل الكوادر القيادية في مجالات إدارة الأعمال، المحاسبة، العلوم المالية والمصرفية، التسويق، الاقتصاد، وإدارة العامة والاقتصاد الرقمي لتلبية احتياجات سوق العمل." },
+    { name: "كلية الحجاوي للهندسة التكنولوجية", about: "من الكليات الرائدة هندسياً في الأردن، وتضم التخصصات الهندسية المختلفة مثل الحاسوب، اتصالات، كهرباء، مدني، ميكانيك، وهندسة العمارة والتقنيات الحديثة." },
+    { name: "كلية الشريعة والدراسات الإسلامية", about: "تهدف إلى ترسيخ الفكر الإسلامي المعتدل والإعداد العلمي المتميز في تخصصات الفقه وأصوله، أصول الدين، والدراسات الإسلامية والدعوة." },
+    { name: "كلية العلوم التربوية", about: "تختص بتأهيل المربين والمعلمين والمرشدين النفسيين، وتضم أقسام المناهج، الإدارة التربوية، علم النفس التربوي، وتربية الطفل." },
+    { name: "كلية التربية البدنية وعلوم الرياضة", about: "تُعنى بالإعداد البدني والرياضي وتأهيل مدربين ومعلمي رياضيين محترفين، وتضم صالات ومسابح وملاعب رياضية متكاملة." },
+    { name: "كلية القانون", about: "تركز على تدريس العلوم الحقوقية والقانونية (القانون العام والقانون الخاص) وتأهيل القضاة والمحامين والمستشارين القانونيين بكفاءة عالية." },
+    { name: "كلية الفنون الجميلة", about: "حاضنة الإبداع والفنون وتضم أقسام التصميم، الفنون التشكيلية، الموسيقى، والدراما، وتساهم في إثراء الحركة الثقافية والفنية." },
+    { name: "كلية تكنولوجيا المعلومات وعلوم الحاسوب", about: "من الكليات المواكبة للتطور الرقمي وتضم تخصصات نوعية مثل الذكاء الاصطناعي، الأمن السيبراني، علوم الحاسوب، نظم المعلومات، تكنولوجيا الأعمال، وتطوير الألعاب." },
+    { name: "كلية الآثار والأنثروبولوجيا", about: "تختص بدراسة وتوثيق التراث الحضاري والآثار وصيانتها ودراسة المجهود الإنساني والمجتمعات عبر التاريخ." },
+    { name: "كلية السياحة والفنادق", about: "تهتم بتدريب وتأهيل الكوادر البشرية في مجالات الإدارة السياحية والفندقية والإرشاد السياحي لدعم القطاع السياحي الوطني." },
+    { name: "كلية الإعلام", about: "تخرّج الإعلاميين الصحفيين وصناع المحتوى، وتضم أقسام الصحافة، الإذاعة والتلفزيون، والعلاقات العامة والإعلان مع استوديوهات تدريبية حديثة." },
+    { name: "كلية الطب", about: "تستهدف تخريج أطباء على مستوى عالٍ من الكفاءة العلمية والأخلاقية لتطوير الرعاية الصحية والخدمات الطبية في الأردن والمنطقة." },
+    { name: "كلية الصيدلة", about: "تُعنى بالعلوم الصيدلانية، الرعاية الصيدلانية، والتصنيع الدوائي، وتدريب الطلبة ميدانياً في الصيدليات والمستشفيات." },
+    { name: "كلية التمريض", about: "تهدف إلى رفد القطاع الصحي بممرضين وممرضات مؤهلين بمهارات عالية للتعامل مع مختلف الحالات المرضية والصحية." },
+    { name: "الكلية التقنية (دبلوم)", about: "تقدم برامج الدبلوم المتوسط والتدريب المهني التقني المباشر لرفد سوق العمل بالمهارات الحرفية والتكنولوجية المطلوبة." }
+  ];
+
+  // College Selection Handler
+  function selectCollege(index) {
+    const badges = document.querySelectorAll('.college-badge');
+    badges.forEach(b => b.classList.remove('active'));
+    badges[index].classList.add('active');
+
+    const detailsBox = document.getElementById('collegeDetailsBox');
+    const titleName = document.getElementById('collegeTitleName');
+    const aboutText = document.getElementById('collegeAboutText');
+    const itSection = document.getElementById('itMajorsSection');
+    const planBox = document.getElementById('planViewBox');
+
+    titleName.textContent = collegesData[index].name;
+    aboutText.textContent = collegesData[index].about;
+
+    // Hide Plan box when switching colleges
+    planBox.classList.remove('active');
+
+    // Check if IT College selected (Index 9)
+    if (index === 9) {
+      itSection.style.display = 'block';
     } else {
-      container.style.display = 'none';
+      itSection.style.display = 'none';
     }
+
+    detailsBox.style.display = 'block';
+    detailsBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  function showPlan(majorKey, majorName, fileName) {
-    const box = document.getElementById('planViewBox');
+  // Show Tree Plan Image Handler
+  function showPlan(majorName, fileName, btnElement) {
+    const majorBtns = document.querySelectorAll('.major-btn');
+    majorBtns.forEach(b => b.classList.remove('active'));
+    if(btnElement) btnElement.classList.add('active');
+
+    const planBox = document.getElementById('planViewBox');
     const title = document.getElementById('planTitleText');
     const img = document.getElementById('planImage');
 
     title.textContent = `الخطة الشجرية لتخصص: ${majorName}`;
     
-    // ربط مباشر مع ملفات جيت هب مع استخدام بديل احتياطي محلي في حال لم تحمل الصورة بعد
+    // Direct link with GitHub raw fallback
     img.src = fileName;
     img.onerror = function() {
       this.src = `https://raw.githubusercontent.com/mistarihi7/alqrar-yu/main/${fileName}`;
     };
 
-    box.classList.add('active');
-    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    planBox.classList.add('active');
+    planBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   // Join Form WhatsApp Submission
